@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/addNumber"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+        android:hint="Enter Number"
+        android:id="@+id/inputOne"
+        android:gravity="center"
+        android:layout_marginBottom="120dp"
+        android:layout_height="wrap_content">
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:hint="Enter Number"
+        android:gravity="center"
+        android:id="@+id/inputTwo"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content">
+
+    </EditText>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:hint="Result"
+        android:id="@+id/result"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+    </TextView>
+
+
+</FrameLayout>
