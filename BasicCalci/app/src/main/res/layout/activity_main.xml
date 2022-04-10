@@ -15,16 +15,17 @@
         android:orientation="vertical"
         android:layout_height="0dp">
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Input"
             android:gravity="right|center"
             android:layout_weight="1"
+            android:inputType="none"
             android:id="@+id/input"
             android:textColor="@color/purple_200"
             android:textSize="35dp">
-        </EditText>
+        </TextView>
 
         <TextView
             android:layout_width="match_parent"
@@ -88,17 +89,6 @@
 
                 </HorizontalScrollView>
 
-                <Button
-                    android:id="@+id/back"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_baseline_backspace_24"
-                    android:paddingLeft="30dp"
-                    android:background="@color/transparent"
-                    android:onClick="backPress">
-
-                </Button>
 
             </LinearLayout>
 
@@ -128,7 +118,7 @@
                 android:id="@+id/left_paranthesis"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
-                android:onClick="leftParanthesis"
+                android:onClick="numberEvent"
                 android:background="@color/transparent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"></Button>
@@ -138,7 +128,7 @@
                 android:text=")"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
-                android:onClick="rightParanthesis"
+                android:onClick="numberEvent"
                 android:id="@+id/right_paranthesis"
                 android:background="@color/transparent"
                 android:layout_height="match_parent"
@@ -147,8 +137,8 @@
             <Button
                 android:layout_width="0dp"
                 android:text="*"
-                android:onClick="multiply"
-                android:id="@+id/mutiply"
+                android:onClick="operatorEvent"
+                android:id="@+id/multiply"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -169,7 +159,7 @@
                 android:layout_width="0dp"
                 android:text="7"
                 android:id="@+id/seven"
-                android:onClick="Seven"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -180,7 +170,7 @@
                 android:layout_width="0dp"
                 android:text="8"
                 android:id="@+id/eight"
-                android:onClick="Eight"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -191,7 +181,7 @@
                 android:layout_width="0dp"
                 android:text="9"
                 android:id="@+id/nine"
-                android:onClick="Nine"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -202,7 +192,7 @@
                 android:layout_width="0dp"
                 android:text="/"
                 android:id="@+id/divide"
-                android:onClick="divide"
+                android:onClick="operatorEvent"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -226,7 +216,7 @@
                 android:layout_width="0dp"
                 android:text="4"
                 android:id="@+id/four"
-                android:onClick="Four"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -237,7 +227,7 @@
                 android:layout_width="0dp"
                 android:text="5"
                 android:id="@+id/five"
-                android:onClick="Five"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -248,7 +238,7 @@
                 android:layout_width="0dp"
                 android:text="6"
                 android:id="@+id/six"
-                android:onClick="Six"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -259,7 +249,7 @@
                 android:layout_width="0dp"
                 android:text="+"
                 android:id="@+id/plus"
-                android:onClick="plus"
+                android:onClick="operatorEvent"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -282,7 +272,7 @@
                 android:layout_width="0dp"
                 android:text="1"
                 android:id="@+id/one"
-                android:onClick="One"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -293,7 +283,7 @@
                 android:layout_width="0dp"
                 android:text="2"
                 android:id="@+id/two"
-                android:onClick="Two"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -304,7 +294,7 @@
                 android:layout_width="0dp"
                 android:text="3"
                 android:id="@+id/three"
-                android:onClick="Three"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -315,7 +305,7 @@
                 android:layout_width="0dp"
                 android:text="-"
                 android:id="@+id/minus"
-                android:onClick="minus"
+                android:onClick="operatorEvent"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -341,7 +331,7 @@
                 android:id="@+id/dot"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
-                android:onClick="dot"
+                android:onClick="numberEvent"
                 android:background="@color/transparent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"></Button>
@@ -350,7 +340,7 @@
                 android:layout_width="0dp"
                 android:text="0"
                 android:id="@+id/zero"
-                android:onClick="zero"
+                android:onClick="numberEvent"
                 android:textColor="@color/powder_grey"
                 android:textSize="38dp"
                 android:background="@color/transparent"
@@ -363,7 +353,7 @@
                 android:id="@+id/modulo"
                 android:textColor="@color/sky_blue"
                 android:textSize="38dp"
-                android:onClick="modulo"
+                android:onClick="operatorEvent"
                 android:background="@color/transparent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"></Button>
