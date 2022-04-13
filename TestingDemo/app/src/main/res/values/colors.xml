@@ -7,12 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <!-- Custom Color Added -->
-    <color name="powder_grey">#645F5F</color>
-    <color name="calcli_button">#0D0707</color>
-    <color name="transparent">#00FFFFFF</color>
-    <color name="pale_orange">#FC6535</color>
-    <color name="sky_blue">#40A1EF</color>
-    <color name="light_green">#93FF97</color>
 </resources>

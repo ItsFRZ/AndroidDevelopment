@@ -1,7 +1,9 @@
 package com.itsfrz.basiccalci
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -11,6 +13,7 @@ import kotlin.collections.HashMap
 
 
 class MainActivity : AppCompatActivity() {
+
 
 
     private var input : TextView? = null;
@@ -23,8 +26,13 @@ class MainActivity : AppCompatActivity() {
     private var oldData : String = ""
     private var operand : String = "+"
     private var isNewOp : Boolean = true
+    private var copiedHistory = ""
+
+    private lateinit var computationHistory : ComputationHistory;
+    private lateinit var computationLogic : ComputationLogic;
 
 
+    private val HISTORY_DATA = "History_Data"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +40,35 @@ class MainActivity : AppCompatActivity() {
 
 
         initAllViews()
+        initAllReferences()
+        setLongPressCopy()
+    }
+
+    private fun initAllReferences() {
+        computationHistory = ComputationHistory()
+        computationLogic = ComputationLogic()
+    }
+
+    private fun setLongPressCopy() {
+        rawData!!.setOnLongClickListener(View.OnLongClickListener {
+
+                input!!.text = output!!.text
+                rawData!!.text = ""
+                output!!.text = ""
+                Log.d(HISTORY_DATA, "setLongPressCopy: "+input.toString()+" "+output.toString())
+                changeViewColor(rawData,true)
+
+            true
+        })
+    }
+
+
+    private fun changeViewColor(rawData: TextView?,colorIt : Boolean) {
+        if(colorIt){
+            input!!.setBackgroundColor(resources.getColor(R.color.light_green))
+        }else{
+            input!!.setBackgroundColor(resources.getColor(R.color.transparent))
+        }
     }
 
     private fun initAllViews() {
@@ -109,63 +146,46 @@ class MainActivity : AppCompatActivity() {
 
     fun equal(view: View) {
         val newNumber : String = input?.text.toString() ?: ""
-        var result : Double = 0.0
-
-        try{
-            when(operand){
-                "+" -> {
-                    result = oldData.toDouble() + newNumber.toDouble()
-                }
-                "-" -> {
-                    result = oldData.toDouble() - newNumber.toDouble()
-                }
-                "/" -> {
-                    result = oldData.toDouble() / newNumber.toDouble()
-                }
-                "*" -> {
-                    result = oldData.toDouble() * newNumber.toDouble()
-                }
-                "%" -> {
-                    result = oldData.toDouble() % newNumber.toDouble()
-                }
-            }
-
-        }catch (e : Exception){
-            Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show()
-            clearData(view)
-        }
-
-        output?.text = result.toString()
-        input?.text = result.toString()
-
-        setRawData(oldData,operand,newNumber)
-
-        val historyOfEntry = oldData+operand+newNumber
-        oldData = result.toString()
-
-        history.push(historyOfEntry+"="+oldData)
+        val result = computationLogic.equal(newNumber, operand, oldData)
+        setResult(result)
+        setRawData(newNumber)
+        changeViewColor(input,false)
+        computationHistory.saveHistory("${(oldData+operand+newNumber)}=$result",history)
 
     }
 
-    private fun setRawData(oldData: String, operand: String, newNumber: String) {
-        val rawString = oldData+operand+newNumber
-
-        rawData?.text = rawString
+    private fun setRawData(newData : String) {
+       val rData : String= oldData+operand+newData
+       rawData!!.text = rData
     }
 
-    fun clearData(view: View) {
-        input?.text = ""
-        output?.text = ""
-        rawData?.text = ""
-        oldData = ""
+    private fun setResult(value : Double){
+        output?.text = value.toString()
     }
 
-    fun history(view: View) {
-      if(history.size >= 1){
-          val(entry,result) = history.pop().split("=");
-          output?.text = result
-          rawData?.text = entry
-      }
+    fun clearData(view: View){
+        clearAllData()
+    }
+
+    private fun clearAllData() {
+        input!!.text = ""
+        rawData!!.text = ""
+        output!!.text = ""
+
+    }
+
+    fun showHistory(view: View) {
+        val previousComputation : String = computationHistory.showHistory(history)
+        setHistoryData(previousComputation)
+    }
+
+    private fun setHistoryData(previousComputation: String) {
+       if (!previousComputation.isEmpty()){
+           val(data,result) = previousComputation.split("=")
+           rawData!!.text = data
+           output!!.text = result
+           input!!.text = ""
+       }
     }
 
 
