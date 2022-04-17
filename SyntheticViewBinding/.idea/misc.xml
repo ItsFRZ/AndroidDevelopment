@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Development/Mobile/SyntheticViewBinding/app/src/main/res/layout/activity_main.xml" value="0.15260416666666668" />
+        <entry key="..\:/Development/Mobile/SyntheticViewBinding/app/src/main/res/layout/activity_view_binding.xml" value="0.17083333333333334" />
         <entry key="..\:/Development/Mobile/SyntheticViewBinding/app/src/main/res/layout/fragment_synthetic.xml" value="0.15260416666666668" />
+        <entry key="..\:/Development/Mobile/SyntheticViewBinding/app/src/main/res/layout/fragment_view_binding.xml" value="0.17083333333333334" />
       </map>
     </option>
   </component>

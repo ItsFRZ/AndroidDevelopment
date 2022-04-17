@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#E91E63"
+    android:layout_height="match_parent"
+    tools:context=".ViewBindingActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:textSize="38dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/myViewBindingText"
+        android:layout_height="wrap_content"></TextView>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/viewBindingFragmentContainer"
+        android:layout_below="@id/myViewBindingText"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+</RelativeLayout>
