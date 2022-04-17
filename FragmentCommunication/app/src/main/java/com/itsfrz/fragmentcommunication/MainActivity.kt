@@ -8,14 +8,28 @@ class MainActivity : AppCompatActivity() , FragementActionListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragmentOne = FragmentOne()
-        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer,fragmentOne).commit()
 
+        addInitFragment()
+
+    }
+
+    private fun addInitFragment() {
+
+        val fragmentOne = FragmentOne()
+        fragmentOne.setFragmentActionListenerInterface(this)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer,fragmentOne)
+            .commit()
     }
 
     override fun sendAction(bundle: Bundle) {
 
+        val fragmentTwo = FragmentTwo()
+        fragmentTwo.arguments = bundle
 
-
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer,fragmentTwo)
+            .addToBackStack(null)
+            .commit()
     }
 }
