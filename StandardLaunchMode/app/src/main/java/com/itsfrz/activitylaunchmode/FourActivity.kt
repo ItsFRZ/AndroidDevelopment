@@ -1,4 +1,4 @@
-package com.itsfrz.standardlaunchmode
+package com.itsfrz.activitylaunchmode
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

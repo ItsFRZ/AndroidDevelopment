@@ -1,4 +1,4 @@
-package com.itsfrz.standardlaunchmode
+package com.itsfrz.activitylaunchmode
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 
-class OneActivity : AppCompatActivity() {
+class TwoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_one)
+        setContentView(R.layout.activity_two)
 
         Log.d(ACTIVITYLOG,  "CREATED: " + javaClass.simpleName + " -- TASK ID: " + taskId);
 
