@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".OneActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="One Activity"
+            android:gravity="center"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:layout_height="match_parent"></TextView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:onClick="one"
+            android:text="Activity 1"
+            android:layout_height="wrap_content"></Button>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:onClick="two"
+            android:text="Activity 2"
+            android:layout_height="wrap_content"></Button>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:onClick="three"
+            android:text="Activity 3"
+            android:layout_height="wrap_content"></Button>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:onClick="four"
+            android:text="Activity 4"
+            android:layout_height="wrap_content"></Button>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
