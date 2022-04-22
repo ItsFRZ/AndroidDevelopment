@@ -19,7 +19,7 @@ class PrimaryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val allStudents : ArrayList<Student> = getDynamicStudents(100)
-        val studentAdapter = StudentAdapter(this,allStudents);
+        val studentAdapter = StudentAdapter(allStudents);
         binding.studentList.adapter = studentAdapter
 
     }

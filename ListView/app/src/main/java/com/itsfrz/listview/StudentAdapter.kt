@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import org.w3c.dom.Text
 
-class StudentAdapter(private val context : Context,private val studentList: ArrayList<Student>) : BaseAdapter(){
+class StudentAdapter(private val studentList: ArrayList<Student>) : BaseAdapter(){
     override fun getCount(): Int {
 
         return studentList.size
@@ -21,21 +22,57 @@ class StudentAdapter(private val context : Context,private val studentList: Arra
         return studentList[position].rollNo.hashCode().toLong()
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var convertView = convertView
-        convertView = LayoutInflater.from(context)
-            .inflate(
-                R.layout.student_item,
-                parent,
-                false
-            )
+    override fun getView(position: Int, view: View?, parent: ViewGroup): View {
+        val convertView : View
+        val viewHolder : ViewHolder
+        if(view == null){
 
-        val studentName : TextView = convertView.findViewById(R.id.item_name)
-        val studentAge : TextView = convertView.findViewById(R.id.item_age)
-        val studentRoll : TextView = convertView.findViewById(R.id.item_roll)
-        val studentAddress : TextView = convertView.findViewById(R.id.item_address)
-        val studentCollege : TextView = convertView.findViewById(R.id.item_college)
-        val studentBranch : TextView = convertView.findViewById(R.id.item_branch)
+            convertView = LayoutInflater.from(parent.context)
+                .inflate(
+                    R.layout.student_item,
+                    parent,
+                    false
+                )
+            viewHolder = ViewHolder()
+            with(viewHolder){
+                studentName = convertView.findViewById(R.id.item_name)
+                studentAge = convertView.findViewById(R.id.item_age)
+                studentAddress = convertView.findViewById(R.id.item_address)
+                studentBranch = convertView.findViewById(R.id.item_branch)
+                studentRoll = convertView.findViewById(R.id.item_roll)
+                studentCollege = convertView.findViewById(R.id.item_college)
+                convertView.tag = this
+            }
+
+        }else{
+            convertView = view // use already intiated view
+            viewHolder = convertView.tag as ViewHolder
+
+        }
+
+        with(viewHolder){
+            studentName.text = getItem(position).name
+            studentAge.text = getItem(position).age
+            studentRoll.text = getItem(position).rollNo
+            studentAddress.text = getItem(position).address
+            studentCollege.text = getItem(position).college
+            studentBranch.text = getItem(position).branch
+        }
+
+
+        return convertView
+    }
+
+    /*
+
+
+
+        val studentName : TextView = convertView?.findViewById(R.id.item_name) as TextView
+        val studentAge : TextView = convertView?.findViewById(R.id.item_age) as TextView
+        val studentRoll : TextView = convertView?.findViewById(R.id.item_roll) as TextView
+        val studentAddress : TextView = convertView?.findViewById(R.id.item_address) as TextView
+        val studentCollege : TextView = convertView?.findViewById(R.id.item_college) as TextView
+        val studentBranch : TextView = convertView?.findViewById(R.id.item_branch) as TextView
 
         studentName.text = getItem(position).name
         studentAge.text = getItem(position).age
@@ -45,6 +82,16 @@ class StudentAdapter(private val context : Context,private val studentList: Arra
         studentBranch.text = getItem(position).branch
 
 
-        return convertView
+
+     */
+    private class ViewHolder{
+        lateinit var studentName: TextView
+        lateinit var studentAge: TextView
+        lateinit var studentRoll: TextView
+        lateinit var studentAddress: TextView
+        lateinit var studentCollege: TextView
+        lateinit var studentBranch: TextView
+
     }
+
 }
