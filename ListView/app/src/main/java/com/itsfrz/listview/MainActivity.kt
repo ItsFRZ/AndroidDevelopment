@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.allViews
 import com.itsfrz.listview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val adapter : ArrayAdapter<String> = ArrayAdapter(
+        val adapter = ArrayAdapter<String>(
             this,
-            R.layout.list_item_fruit,
-            R.id.fruitName,
+            android.R.layout.simple_list_item_1,
+            android.R.id.text1,
             getFruitsData()
         )
 

@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Development/Mobile/ListView/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Development/Mobile/ListView/app/src/main/res/layout/activity_main.xml" value="0.67" />
+        <entry key="..\:/Development/Mobile/ListView/app/src/main/res/layout/activity_primary.xml" value="0.33" />
         <entry key="..\:/Development/Mobile/ListView/app/src/main/res/layout/list_item_fruit.xml" value="0.17083333333333334" />
+        <entry key="..\:/Development/Mobile/ListView/app/src/main/res/layout/student_item.xml" value="0.22" />
       </map>
     </option>
   </component>
