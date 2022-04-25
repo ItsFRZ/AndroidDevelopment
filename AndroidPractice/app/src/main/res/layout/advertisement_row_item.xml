@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#000"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="30dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:id="@+id/advertisementBanner"
+        android:text="Advertisement Here"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Advertisement's are From Google"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/advertisementBannerCompany"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+
+
+</LinearLayout>

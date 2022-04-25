@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class BookAdapter(private val bookList : ArrayList<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(private val objectList : ArrayList<Any>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class BookViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val bookName : TextView = view.findViewById(R.id.bookName)
@@ -17,25 +19,67 @@ class BookAdapter(private val bookList : ArrayList<Book>) : RecyclerView.Adapter
         val bookImage : ImageView = view.findViewById(R.id.bookImage)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val bookLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.book_items,parent,false)
-        return BookViewHolder(bookLayout)
+    class AdvertisementViewHolder(view : View) : RecyclerView.ViewHolder(view){
+        val adBanner : TextView = view.findViewById(R.id.advertisementBanner)
+        val adCompany : TextView = view.findViewById(R.id.advertisementBannerCompany);
     }
 
-    override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        with(holder){
-            this.bookImage.setImageResource(bookList.get(position).bookImage)
-            this.bookName.text = bookList.get(position).bookName
-            this.bookAuthor.text = bookList.get(position).authorName
-            this.bookPrice.text = bookList.get(position).price
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        lateinit var holder : RecyclerView.ViewHolder
+        when(viewType){
+            R.layout.advertisement_row_item -> {
+                val advertisementLayout = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.advertisement_row_item,parent,false)
+                holder = AdvertisementViewHolder(advertisementLayout)
+            }
+            R.layout.book_row_items -> {
+                val bookLayout = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.book_row_items,parent,false)
+                holder = BookViewHolder(bookLayout)
+
+            }
+            else -> {
+                val advertisementLayout = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.advertisement_row_item,parent,false)
+                holder = AdvertisementViewHolder(advertisementLayout)
+            }
+       }
+        return holder
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
+        if(holder is AdvertisementViewHolder){
+            with(holder){
+                val adItem = objectList.get(position) as Advertisment
+                this.adBanner.text = adItem.adText
+                this.adCompany.text = adItem.adCompany
+            }
+        } else if(holder is BookViewHolder){
+            with(holder){
+                val bookItem = objectList.get(position) as Book
+                this.bookImage.setImageResource(bookItem.bookImage)
+                this.bookName.text = bookItem.bookName
+                this.bookAuthor.text = bookItem.authorName
+                this.bookPrice.text = bookItem.price
+            }
 
         }
+
+
     }
 
     override fun getItemCount(): Int {
-        return bookList.size
+        return objectList.size
     }
 
-
+    override fun getItemViewType(position: Int): Int {
+        if (objectList.get(position) is Book)
+            return R.layout.book_row_items
+        else
+            return R.layout.advertisement_row_item
+    }
 }
