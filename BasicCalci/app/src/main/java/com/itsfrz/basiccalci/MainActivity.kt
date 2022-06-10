@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             input?.text = ""
         isNewOp = false
         var data = input?.text.toString().trim()
-
+        
         when(view.id){
             R.id.zero -> {
                 data += "0"

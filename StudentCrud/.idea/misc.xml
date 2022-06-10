@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Development/Mobile/StudentCrud/app/src/main/res/layout/activity_main.xml" value="0.25505443234836706" />
+        <entry key="..\:/Development/Mobile/StudentCrud/app/src/main/res/layout/action_student_item.xml" value="0.17083333333333334" />
+        <entry key="..\:/Development/Mobile/StudentCrud/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Development/Mobile/StudentCrud/app/src/main/res/layout/add_student_item.xml" value="0.16" />
         <entry key="..\:/Development/Mobile/StudentCrud/app/src/main/res/layout/student_item.xml" value="0.1" />
       </map>

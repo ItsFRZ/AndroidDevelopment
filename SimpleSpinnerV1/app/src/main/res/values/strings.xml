@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SimpleSpinnerV1</string>
+
+    <string-array name="Colour">
+
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>DKGray</item>
+        <item>Cyan</item>
+        <item>MAGENTA</item>
+        <item>Green</item>
+
+    </string-array>
+
+</resources>

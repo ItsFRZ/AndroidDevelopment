@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:background="#3B253F"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/rowOne"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/nameLayout"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Name"
+                android:textColor="#DEDEDE"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:id="@+id/studentName"
+                android:textSize="18dp"
+                android:hint="Student Name"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/ageLayout"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Age"
+                android:textColor="#DEDEDE"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:id="@+id/studentAge"
+                android:textSize="18dp"
+                android:hint="Student Age"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/rowTwo"
+        android:layout_margin="10dp"
+        android:layout_below="@id/rowOne"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/branchLayout"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Branch"
+                android:textColor="#DEDEDE"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:id="@+id/studentBranch"
+                android:hint="Student Branch"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/semesterLayout"
+            android:layout_weight="1.4"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="Semester"
+                android:textColor="#DEDEDE"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:id="@+id/studentSemester"
+                android:hint="Semester"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/rowThree"
+        android:layout_margin="10dp"
+        android:layout_below="@id/rowTwo"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/rollLayout"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Roll No"
+                android:textColor="#DEDEDE"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:id="@+id/studentRoll"
+                android:hint="Student Roll No"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

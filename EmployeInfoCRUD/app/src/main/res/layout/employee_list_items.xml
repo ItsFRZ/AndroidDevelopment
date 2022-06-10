@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="#2B3238"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/imageLayout"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:id="@+id/employeImage"
+            android:layout_margin="4dp"
+            android:background="@drawable/vector_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_height="120dp">
+        </ImageView>
+    </RelativeLayout>
+
+<!--    Layout Row One-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:id="@+id/layoutRowOne"
+        android:layout_below="@id/imageLayout"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/layoutName"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Employe Name"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:id="@+id/employeName"
+                android:textColorHint="@color/blue"
+                android:textColor="@color/blue"
+                android:hint="Faraz Sheikh"></TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.4"
+            android:id="@+id/layoutId"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="Employe Id"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1.2"
+                android:hint="221100"
+                android:textColorHint="@color/blue"
+                android:id="@+id/employeId"
+                android:textColor="@color/blue"
+                android:layout_height="match_parent"></TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+<!--    Layout Row Two-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:id="@+id/layoutRowTwo"
+        android:layout_below="@id/layoutRowOne"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/layoutGender"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Gender"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/blue"
+                android:textColor="@color/blue"
+                android:id="@+id/employeGender"
+                android:layout_weight="3"
+                android:hint="Male"></TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.4"
+            android:id="@+id/layoutAge"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="Age"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1.2"
+                android:hint="24"
+                android:id="@+id/employeAge"
+                android:textColorHint="@color/blue"
+                android:textColor="@color/blue"
+                android:layout_height="match_parent"></TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

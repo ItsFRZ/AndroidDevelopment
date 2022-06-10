@@ -1,6 +1,6 @@
 package com.itsfrz.studentcrud
 
-data class Student(
+data class Student (
     val studentName : String,
     val branch : String,
     val year : String,

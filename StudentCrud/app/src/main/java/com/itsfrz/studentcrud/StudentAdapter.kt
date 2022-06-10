@@ -63,7 +63,7 @@ class StudentAdapter(val studentList : ArrayList<Student>,val context : Context)
                 dialog.dismiss()
             }
 
-            dialog.show()
+
 
 
         }

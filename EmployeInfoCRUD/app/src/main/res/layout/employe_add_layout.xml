@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+
+    android:background="#3F2B43"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/imageLayout"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:id="@+id/employeImage"
+            android:background="@drawable/vector_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_height="120dp">
+        </ImageView>
+    </RelativeLayout>
+
+    <!--    Layout Row One-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+
+        android:id="@+id/layoutRowOne"
+        android:layout_below="@id/imageLayout"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/layoutName"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Employe Name"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="text"
+                android:id="@+id/employeInputName"
+                android:textColorHint="@color/blue"
+                android:textColor="@color/blue"
+                android:hint="Faraz Sheikh"></EditText>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.4"
+            android:id="@+id/layoutId"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="Employe Id"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:hint="221100"
+                android:inputType="number"
+                android:textColorHint="@color/blue"
+                android:id="@+id/employeInputId"
+                android:textColor="@color/blue"
+                android:layout_height="match_parent"></EditText>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!--    Layout Row Two-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/layoutRowTwo"
+        android:layout_below="@id/layoutRowOne"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/layoutGender"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:text="Gender"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/blue"
+                android:textColor="@color/blue"
+                android:id="@+id/employeInputGender"
+                android:layout_weight="3"
+                android:spinnerMode="dropdown"
+                android:hint="Male"></Spinner>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.4"
+            android:id="@+id/layoutAge"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="Age"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_weight="1.2"
+                android:inputType="number"
+                android:hint="24"
+                android:id="@+id/employeInputAge"
+                android:textColorHint="@color/blue"
+                android:textColor="@color/blue"
+                android:layout_height="match_parent"></EditText>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/layoutRowTwo"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="80dp"
+            android:text="Add"
+            android:background="#46304A"
+            android:id="@+id/addEmployeeButton"
+            android:layout_height="wrap_content"></Button>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
