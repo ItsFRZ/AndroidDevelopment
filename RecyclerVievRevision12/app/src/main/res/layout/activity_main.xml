@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:id="@+id/layoutOne"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/inputName"
+                android:gravity="center"
+                android:hint="Student Name"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:textSize="13dp"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/inputAge"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:layout_weight="1"
+                android:hint="Student Age"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/inputBranch"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:hint="Branch of Program"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="13dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/inputYear"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:hint="Year of College"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/addStudent"
+                android:background="#1F1B1B"
+                android:text="Add Student"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="100dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/studentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutOne"
+        android:layout_weight="1"
+        tools:listitem="@layout/student_data_items"></androidx.recyclerview.widget.RecyclerView>
+
+
+</RelativeLayout>

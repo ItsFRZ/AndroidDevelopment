@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Enter Text Data"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:background="#433D3D"
+        android:id="@+id/inputText"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputText"
+        android:layout_marginHorizontal="30dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:onClick="saveData"
+            android:id="@+id/saveData"
+            android:text="Save Data"></Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:onClick="readData"
+            android:id="@+id/readData"
+            android:text="Read Data"></Button>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:textColor="#FF9800"
+        android:textColorHint="#FF9800"
+        android:textSize="22dp"
+        android:id="@+id/outputText"
+        android:layout_below="@id/buttonLayout"
+        android:layout_height="match_parent">
+
+    </TextView>
+
+</RelativeLayout>

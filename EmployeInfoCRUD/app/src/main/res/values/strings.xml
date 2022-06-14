@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EmployeInfoCRUD</string>
+    <string-array name="GENDER">
+        <item>NONE</item>
+        <item>MALE</item>
+        <item>FEMALE</item>
+        <item>OTHER</item>
+    </string-array>
+</resources>

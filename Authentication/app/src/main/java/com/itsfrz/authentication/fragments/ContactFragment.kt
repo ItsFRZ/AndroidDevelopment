@@ -1,5 +1,6 @@
 package com.itsfrz.authentication.fragments
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -75,6 +76,10 @@ class ContactFragment : Fragment() {
         if (itemId == R.id.logout_status_menu){
             logoutUser()
             contactToActivity()
+        }
+        if(itemId == R.id.add_user_menu){
+            val dialog = Dialog(requireContext())
+
         }
         return true
     }
