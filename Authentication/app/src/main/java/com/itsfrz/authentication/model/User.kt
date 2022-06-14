@@ -1,4 +1,4 @@
-package com.itsfrz.authentication.Model
+package com.itsfrz.authentication.model
 
 data class User(
     val username : String,

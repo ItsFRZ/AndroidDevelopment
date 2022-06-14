@@ -10,9 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.itsfrz.authentication.AuthenticationCommunicator
-import com.itsfrz.authentication.Database.LocalDatabaseHelper
-import com.itsfrz.authentication.Database.UserTable
-import com.itsfrz.authentication.Model.User
+import com.itsfrz.authentication.database.LocalDatabaseHelper
+import com.itsfrz.authentication.database.UserTable
+import com.itsfrz.authentication.model.User
 import com.itsfrz.authentication.R
 
 

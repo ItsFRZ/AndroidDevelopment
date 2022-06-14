@@ -1,9 +1,9 @@
-package com.itsfrz.authentication.Database
+package com.itsfrz.authentication.database
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
-import com.itsfrz.authentication.Model.User
+import com.itsfrz.authentication.model.User
 
 object UserTable {
     val TABLE_NAME = "User"

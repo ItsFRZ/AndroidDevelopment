@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import com.itsfrz.authentication.AuthenticationCommunicator
-import com.itsfrz.authentication.Database.PreferenceRespository
+import com.itsfrz.authentication.database.PreferenceRespository
 import com.itsfrz.authentication.MainActivity
 import com.itsfrz.authentication.R
-import org.w3c.dom.Text
 
 class LandingFragment : Fragment() {
 
@@ -29,26 +27,21 @@ class LandingFragment : Fragment() {
         val outputUsername : TextView = view.findViewById(R.id.username)
         val outputDate : TextView = view.findViewById(R.id.loggedInDate)
         val outputLoggedStatus : TextView = view.findViewById(R.id.loggedStatus)
-        val logout : Button = view.findViewById(R.id.logout)
+        val back : Button = view.findViewById(R.id.back)
 
         communicator = activity as AuthenticationCommunicator
+        val username = arguments?.getString("AuthenticatedUser") ?: ""
+//        communicator.routerFromLoginToContactPage(username)
         populateUserDetails(outputUsername,outputDate,outputLoggedStatus)
-
-        logoutUser(logout)
+        onBack(back);
         return view
     }
 
-    private fun logoutUser(logoutButton : View) {
-        logoutButton.setOnClickListener {
-            preferenceRespository.clearUser()
-            routeToActivity();
+    private fun onBack(back : View) {
+        back.setOnClickListener {
+            communicator.routerFromLandingToContactPage()
         }
-    }
 
-    private fun routeToActivity() {
-        val intent = Intent(requireContext(),MainActivity::class.java)
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
     }
 
 

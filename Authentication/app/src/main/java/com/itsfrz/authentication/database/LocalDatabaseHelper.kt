@@ -1,4 +1,4 @@
-package com.itsfrz.authentication.Database
+package com.itsfrz.authentication.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

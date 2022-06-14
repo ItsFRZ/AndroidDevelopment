@@ -2,7 +2,6 @@ package com.itsfrz.authentication.fragments
 
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.itsfrz.authentication.AuthenticationCommunicator
-import com.itsfrz.authentication.Database.LocalDatabaseHelper
-import com.itsfrz.authentication.Database.PreferenceRespository
-import com.itsfrz.authentication.Database.UserTable
-import com.itsfrz.authentication.MainActivity
-import com.itsfrz.authentication.Model.User
+import com.itsfrz.authentication.database.LocalDatabaseHelper
+import com.itsfrz.authentication.database.PreferenceRespository
+import com.itsfrz.authentication.database.UserTable
+import com.itsfrz.authentication.model.User
 import com.itsfrz.authentication.R
 import java.util.*
 
@@ -47,7 +45,7 @@ class LoginFragment : Fragment() {
                     &&
                     user.password.equals(passwordInput.text.toString())){
                     persistMyPreferences(usernameInput.text.toString());
-                    communicator.routeFromLoginToLandingPage(usernameInput.text.toString())
+                    communicator.routerFromLoginToContactPage(usernameInput.text.toString())
                 }else{
                     Toast.makeText(this.context, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
                 }
