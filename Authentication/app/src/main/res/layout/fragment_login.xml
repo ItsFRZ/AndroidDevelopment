@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#70C0FF"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="3dp"
     android:orientation="vertical"
     tools:context=".fragments.LoginFragment">
 
@@ -31,8 +32,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="2"
-        app:cardCornerRadius="10dp"
         app:cardBackgroundColor="#FCFCFC"
+        app:cardCornerRadius="10dp"
         app:cardElevation="0dp">
 
         <RelativeLayout
@@ -40,11 +41,13 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="30dp"
                 android:id="@+id/loginUsernameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_height="wrap_content">
+                android:hint="Username"
+                android:textColorHint="@color/app_color_primary">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -54,11 +57,9 @@
                     android:background="@drawable/authentication_input_layout"
                     android:drawableLeft="@drawable/ic_baseline_account_box_24"
                     android:gravity="center"
-                    android:hint="Username"
-                    app:hintTextColor="#70C0FF"
                     android:inputType="textEmailAddress"
                     android:padding="20dp"
-                   >
+                    android:textColor="@color/app_color_secondary">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -66,12 +67,14 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginPasswordLayout"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginUsernameLayout"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
-                android:id="@+id/loginPasswordLayout"
-                android:layout_below="@id/loginUsernameLayout"
-                android:layout_height="wrap_content">
+                android:textColorHint="@color/app_color_primary"
+                android:hint="Password">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -81,21 +84,18 @@
                     android:background="@drawable/authentication_input_layout"
                     android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
                     android:gravity="center"
-                    android:hint="Password"
                     android:inputType="numberPassword"
                     android:padding="20dp"
-                    android:textColor="#70C0FF"
-                    android:textColorHint="#70C0FF">
+                    android:textColor="@color/app_color_secondary">
 
                 </com.google.android.material.textfield.TextInputEditText>
-
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginButton"
-                android:layout_width="60dp"
+                android:layout_width="160dp"
                 android:layout_height="60dp"
                 android:layout_below="@+id/loginPasswordLayout"
                 android:layout_centerHorizontal="true"
@@ -105,43 +105,41 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/authentication_button_layout"
                 android:clickable="true"
-                app:backgroundTint="#70C0FF"
-                app:hintTextColor="#70C0FF"
-                app:icon="@drawable/ic_baseline_login_24"
-                app:iconGravity="textStart"
-                app:iconSize="22dp"
-                app:rippleColor="#C2E5FF"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@color/white"
+                app:rippleColor="#FF480E"
                 tools:text="Login">
 
             </com.google.android.material.button.MaterialButton>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_margin="20dp"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/loginButton"
-                android:layout_height="wrap_content">
+                android:layout_margin="20dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:textColor="#70C0FF"
+                    android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:text="Don't have an account ?"
-                    android:layout_height="wrap_content">
+                    android:textColor="#70C0FF">
 
                 </TextView>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signUpButon"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
                     android:layout_marginTop="10dp"
-                    app:backgroundTint="#70C0FF"
+                    android:background="@drawable/authentication_button_layout"
                     android:text="SignUp"
                     android:textColor="@color/white"
                     android:textSize="18dp"
-                    android:id="@+id/signUpButon"
-                    android:layout_marginHorizontal="40dp"
-                    android:background="@drawable/authentication_button_layout"
-                    android:layout_height="wrap_content"></com.google.android.material.button.MaterialButton>
+                    app:backgroundTint="#70C0FF"></com.google.android.material.button.MaterialButton>
 
 
             </LinearLayout>

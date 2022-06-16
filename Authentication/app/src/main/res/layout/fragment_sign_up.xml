@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#70C0FF"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="3dp"
     android:orientation="vertical"
     tools:context=".fragments.SignUpFragment">
 
@@ -31,8 +32,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="2"
-        app:cardCornerRadius="10dp"
         app:cardBackgroundColor="#FCFCFC"
+        app:cardCornerRadius="10dp"
         app:cardElevation="0dp">
 
         <RelativeLayout
@@ -40,11 +41,13 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="30dp"
                 android:id="@+id/loginUsernameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_height="wrap_content">
+                android:hint="Username"
+                android:textColorHint="@color/app_color_secondary">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -54,11 +57,9 @@
                     android:background="@drawable/authentication_input_layout"
                     android:drawableLeft="@drawable/ic_baseline_account_box_24"
                     android:gravity="center"
-                    android:hint="Username"
-                    app:hintTextColor="#70C0FF"
                     android:inputType="textEmailAddress"
                     android:padding="20dp"
-                    >
+                    android:textColor="@color/app_color_secondary">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -66,12 +67,14 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/registerPasswordLayoutOne"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginUsernameLayout"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
-                android:id="@+id/registerPasswordLayoutOne"
-                android:layout_below="@id/loginUsernameLayout"
-                android:layout_height="wrap_content">
+                android:hint="Password"
+                android:textColorHint="@color/app_color_secondary">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -81,26 +84,25 @@
                     android:background="@drawable/authentication_input_layout"
                     android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
                     android:gravity="center"
-                    android:hint="Password"
-                    android:inputType="number"
+                    android:inputType="numberPassword"
                     android:padding="20dp"
-                    android:textColor="#70C0FF"
-                    android:textColorHint="#70C0FF">
+                    android:textColor="@color/app_color_secondary">
 
                 </com.google.android.material.textfield.TextInputEditText>
-
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="20dp"
                 android:id="@+id/registerPasswordLayoutTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Re Password"
+                android:textColorHint="@color/app_color_secondary"
                 android:layout_below="@id/registerPasswordLayoutOne"
-                android:layout_height="wrap_content">
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -110,14 +112,11 @@
                     android:background="@drawable/authentication_input_layout"
                     android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
                     android:gravity="center"
-                    android:hint="Re Password"
-                    android:inputType="numberPassword"
+                    android:inputType="number"
                     android:padding="20dp"
-                    android:textColor="#70C0FF"
-                    android:textColorHint="#70C0FF">
+                    android:textColor="@color/app_color_secondary">
 
                 </com.google.android.material.textfield.TextInputEditText>
-
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -125,7 +124,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/registerButton"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_below="@+id/registerPasswordLayoutTwo"
                 android:layout_centerHorizontal="true"
@@ -134,12 +133,9 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/authentication_button_layout"
-                android:clickable="true"
-                app:backgroundTint="#70C0FF"
-                app:hintTextColor="#70C0FF"
-                app:icon="@drawable/ic_baseline_vpn_key_24"
-                app:iconGravity="textTop"
-                app:iconSize="22dp"
+                android:gravity="center"
+                android:text="Register"
+                android:textColor="@color/white"
                 app:rippleColor="#C2E5FF">
 
             </com.google.android.material.button.MaterialButton>

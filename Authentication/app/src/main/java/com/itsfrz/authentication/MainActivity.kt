@@ -1,6 +1,8 @@
 package com.itsfrz.authentication
 
 import android.Manifest
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,7 +21,10 @@ class MainActivity : BaseActivity() ,AuthenticationCommunicator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
+        val actionBar = supportActionBar
+        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FF70C0FF")))
+        actionBar?.hide()
+
 
         val permission = requestRunTimePermission(this, arrayOf(Manifest.permission.READ_CONTACTS),READ_CONTACT_RQ)
         if(permission){

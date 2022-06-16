@@ -6,6 +6,7 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.widget.Toast
 import com.itsfrz.authentication.model.Contact
+import com.itsfrz.authentication.model.PersonContact
 
 object ContactProvider {
 
@@ -70,6 +71,10 @@ object ContactProvider {
         val whereClause = ContactsContract.RawContacts.DISPLAY_NAME_PRIMARY+"='"+contactName+"'"
         context.contentResolver.delete(ContactsContract.RawContacts.CONTENT_URI,whereClause,null)
         Toast.makeText(context, "$contactName has been deleted", Toast.LENGTH_SHORT).show()
+    }
+
+    fun createContact(context: Context,personContact: PersonContact){
+
     }
 
     fun createContact(context: Context, name: String, number : String) {

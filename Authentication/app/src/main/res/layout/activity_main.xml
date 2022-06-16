@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/app_color_primary"
     android:id="@+id/fragmentContainer"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -15,14 +16,16 @@
         android:layout_height="200dp">
     </ImageView>
 
+
     <Button
+        android:id="@+id/permissionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lockImage"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:id="@+id/permissionButton"
-        android:background="@drawable/authentication_button_layout"
-        android:text="Allow Permission"></Button>
+        android:src="@drawable/permission_button_layout"
+        android:text="Allow Permission"
+        android:textColor="@color/white"></Button>
+
 
 </RelativeLayout>
