@@ -4,16 +4,24 @@ import android.content.*
 import android.database.Cursor
 import android.net.Uri
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.Toast
+import com.itsfrz.authentication.R
 import com.itsfrz.authentication.model.Contact
 import com.itsfrz.authentication.model.PersonContact
+
 
 object ContactProvider {
 
     private val mColumnProjection = arrayOf<String>(
         ContactsContract.Contacts.DISPLAY_NAME_PRIMARY,
         ContactsContract.Contacts.HAS_PHONE_NUMBER,
-        ContactsContract.Contacts.PHOTO_THUMBNAIL_URI
+        ContactsContract.Contacts.PHOTO_ID,
+        ContactsContract.Contacts.PHOTO_THUMBNAIL_URI,
+    )
+
+    private val mColumnProjectionPhoto = arrayOf<String>(
+        ContactsContract.CommonDataKinds.Phone.CONTACT_ID
     )
 
 
@@ -37,8 +45,8 @@ object ContactProvider {
                     val contactName = it.getString(0)
                     val contactNumber = ""
                     val hasPhoneNumber = it.getString(1).toInt()
-
-                    val contact = Contact(contactName,contactNumber)
+                    val contactId = ""
+                    val contact = Contact(contactName,contactNumber,false,"")
                     contactList.add(contact)
 
 
@@ -50,6 +58,9 @@ object ContactProvider {
 
         return contactList
     }
+
+
+
 
     fun updateContact(context: Context, contactName : String, updatedContactName : String) {
 

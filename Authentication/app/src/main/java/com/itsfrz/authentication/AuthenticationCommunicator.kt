@@ -8,4 +8,5 @@ interface AuthenticationCommunicator {
     fun routerFromLoginToContactPage(username : String);
     fun routeFromContactToLandingPage();
     fun routerFromLandingToContactPage();
+    fun routeFromContactToAddContact();
 }

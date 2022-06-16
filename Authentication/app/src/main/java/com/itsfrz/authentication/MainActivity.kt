@@ -8,10 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.itsfrz.authentication.database.PreferenceRespository
-import com.itsfrz.authentication.fragments.ContactFragment
-import com.itsfrz.authentication.fragments.LandingFragment
-import com.itsfrz.authentication.fragments.LoginFragment
-import com.itsfrz.authentication.fragments.SignUpFragment
+import com.itsfrz.authentication.fragments.*
 import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() ,AuthenticationCommunicator {
@@ -101,6 +98,17 @@ class MainActivity : BaseActivity() ,AuthenticationCommunicator {
         val contactFragment = ContactFragment()
         fragmentTransaction.replace(R.id.fragmentContainer,contactFragment)
         fragmentTransaction.commit()
+
+    }
+
+    override fun routeFromContactToAddContact() {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        val addContactFragment = AddContactFragment()
+        fragmentTransaction.replace(R.id.fragmentContainer,addContactFragment)
+        fragmentTransaction.addToBackStack("Add Contact Fragment")
+        fragmentTransaction.commit()
+
+
     }
 
     override fun onBackPressed() {

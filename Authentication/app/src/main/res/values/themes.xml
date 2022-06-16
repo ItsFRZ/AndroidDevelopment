@@ -3,7 +3,7 @@
     <style name="Theme.Authentication" parent="Theme.MaterialComponents">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/app_color_primary</item>
-        <item name="colorPrimaryVariant">@color/app_color_primary</item>
+        <item name="colorPrimaryVariant">#0B6DBB</item>
         <item name="colorOnPrimary">@color/app_color_primary</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    
+    
+    <style name="ShapeAppearanceOverlay.DifferentCornerSize.CornerSize50Percent">
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

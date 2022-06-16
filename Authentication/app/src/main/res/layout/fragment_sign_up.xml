@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".fragments.SignUpFragment">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:text="Registeration"
         android:textColor="#FFFFFF"
         android:textSize="34dp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"></com.google.android.material.textview.MaterialTextView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/loginLayout"
