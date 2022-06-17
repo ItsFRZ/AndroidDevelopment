@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.itsfrz.authentication.database.PreferenceRespository
 import com.itsfrz.authentication.fragments.*
+import com.itsfrz.authentication.model.Contact
 import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() ,AuthenticationCommunicator {
@@ -108,6 +109,21 @@ class MainActivity : BaseActivity() ,AuthenticationCommunicator {
         fragmentTransaction.addToBackStack("Add Contact Fragment")
         fragmentTransaction.commit()
 
+
+    }
+
+    override fun routeFromContactToContactDetail(contact: Contact) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        val contactDetailFragment = ContactDetailFragment()
+        fragmentTransaction.replace(R.id.fragmentContainer,contactDetailFragment)
+        fragmentTransaction.addToBackStack("Add Contact Fragment")
+        val bundle = Bundle()
+        bundle.putString("ContactName",contact.contactName)
+        bundle.putString("ContactImage",contact.contactImage)
+        bundle.putString("ContactNumber",contact.contactNumber)
+        bundle.putBoolean("hasContactImage",contact.hasContactImage)
+        contactDetailFragment.arguments = bundle
+        fragmentTransaction.commit()
 
     }
 

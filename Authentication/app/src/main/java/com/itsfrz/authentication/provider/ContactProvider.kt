@@ -1,27 +1,25 @@
 package com.itsfrz.authentication.provider
 
-import android.content.*
+import android.content.ContentResolver
+import android.content.ContentUris
+import android.content.ContentValues
+import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Toast
-import com.itsfrz.authentication.R
 import com.itsfrz.authentication.model.Contact
 import com.itsfrz.authentication.model.PersonContact
 
 
 object ContactProvider {
 
-    private val mColumnProjection = arrayOf<String>(
-        ContactsContract.Contacts.DISPLAY_NAME_PRIMARY,
-        ContactsContract.Contacts.HAS_PHONE_NUMBER,
-        ContactsContract.Contacts.PHOTO_ID,
-        ContactsContract.Contacts.PHOTO_THUMBNAIL_URI,
-    )
-
-    private val mColumnProjectionPhoto = arrayOf<String>(
-        ContactsContract.CommonDataKinds.Phone.CONTACT_ID
+    private val mColumnProjections = arrayOf<String>(
+        ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
+        ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+        ContactsContract.CommonDataKinds.Phone.NUMBER,
+        ContactsContract.CommonDataKinds.Photo.PHOTO_THUMBNAIL_URI
     )
 
 
@@ -31,25 +29,28 @@ object ContactProvider {
         val contentResolver: ContentResolver = context.contentResolver
 
         val cursor : Cursor? = contentResolver.query(
-            ContactsContract.Contacts.CONTENT_URI,
-            mColumnProjection,
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+            mColumnProjections,
             null,
             null,
             null
         );
-//    ContactsContract.CommonDataKinds.Phone.NUMBER,
 
         cursor?.let {
             if (it.count > 0){
                 while (it.moveToNext()){
-                    val contactName = it.getString(0)
-                    val contactNumber = ""
-                    val hasPhoneNumber = it.getString(1).toInt()
-                    val contactId = ""
-                    val contact = Contact(contactName,contactNumber,false,"")
+                    lateinit var  contact : Contact
+                    val contactId : String = it.getString(0)
+                    val contactName = it.getString(1)
+                    val contactNumber = it.getString(2)
+                    val contactPhotoUri = it.getString(3)
+                    if (contactPhotoUri == null)
+                        contact = Contact(contactId,contactName,contactNumber,false,"")
+                    else
+                        contact = Contact(contactId,contactName,contactNumber,true,contactPhotoUri)
+
+                    Log.d("Contact", "getContactList: Contact Information :- ${contact}")
                     contactList.add(contact)
-
-
                 }
                 it.close()
             }
