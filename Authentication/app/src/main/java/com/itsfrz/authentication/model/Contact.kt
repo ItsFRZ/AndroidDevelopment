@@ -3,10 +3,14 @@ package com.itsfrz.authentication.model
 import android.net.Uri
 
 data class Contact(
-    val contactId : String,
-    val contactName : String,
-    val contactNumber : String,
-    val hasContactImage : Boolean,
-    val contactImage : String
+    var contactId : String,
+    var contactName : String,
+    var contactNumber : String,
+    var hasContactImage : Boolean,
+    var contactImage : String,
+    var contactAddress : String,
+    var contactEmailId : String,
+    var contactCountry : String,
+    var contactPostCode : String
 
 )

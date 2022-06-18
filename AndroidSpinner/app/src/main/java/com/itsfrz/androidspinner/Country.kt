@@ -4,6 +4,9 @@ import com.itsfrz.androidspinner.R
 
 data class Country(val image: Int, val name: String)
 
+public var load : Int = 0
+public var reuse : Int = 0
+
 object Countries {
 
     private val images = intArrayOf(
@@ -28,6 +31,7 @@ object Countries {
         get() {
 
             if (field != null)
+                load++
                 return field
 
             field = ArrayList()
@@ -39,7 +43,7 @@ object Countries {
                 val country = Country(imageId, countryName)
                 field!!.add(country)
             }
-
+            reuse++
             return field
         }
 }

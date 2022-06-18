@@ -11,16 +11,29 @@ import android.util.Log
 import android.widget.Toast
 import com.itsfrz.authentication.model.Contact
 import com.itsfrz.authentication.model.PersonContact
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlin.math.log
 
 
 object ContactProvider {
-
+    private val EXCEPTION : String = "EXCEPTION"
     private val mColumnProjections = arrayOf<String>(
         ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
         ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
         ContactsContract.CommonDataKinds.Phone.NUMBER,
-        ContactsContract.CommonDataKinds.Photo.PHOTO_THUMBNAIL_URI
+        ContactsContract.CommonDataKinds.Photo.PHOTO_THUMBNAIL_URI,
+        ContactsContract.CommonDataKinds.Email.ADDRESS,
+
     )
+    private val mColumnProjectionsForPostal = arrayOf<String>(
+        ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS,
+        ContactsContract.CommonDataKinds.StructuredPostal.POSTCODE,
+        ContactsContract.CommonDataKinds.StructuredPostal.COUNTRY
+    )
+
 
 
     public fun getContactList(context : Context) : ArrayList<Contact>{
@@ -36,28 +49,140 @@ object ContactProvider {
             null
         );
 
-        cursor?.let {
-            if (it.count > 0){
-                while (it.moveToNext()){
-                    lateinit var  contact : Contact
-                    val contactId : String = it.getString(0)
-                    val contactName = it.getString(1)
-                    val contactNumber = it.getString(2)
-                    val contactPhotoUri = it.getString(3)
-                    if (contactPhotoUri == null)
-                        contact = Contact(contactId,contactName,contactNumber,false,"")
-                    else
-                        contact = Contact(contactId,contactName,contactNumber,true,contactPhotoUri)
+        try{
+                cursor?.let {
+                    if (it.count > 0){
+                        while (it.moveToNext()){
+                            val contact : Contact = Contact("","","",false,"","","","","")
+                            val contactId : String = it.getString(0)
+                            val contactName = it.getString(1)
+                            val contactNumber = it.getString(2)
+                            val contactPhotoUri = it.getString(3)
 
-                    Log.d("Contact", "getContactList: Contact Information :- ${contact}")
-                    contactList.add(contact)
+
+                            if (contactPhotoUri == null)
+                            {
+                                contact.apply {
+                                    this.contactId = contactId
+                                    this.contactImage = ""
+                                    this.contactNumber = contactNumber
+                                    this.hasContactImage = false
+                                    this.contactName = contactName
+                                }
+
+                            } else{
+                                contact.apply {
+                                    this.contactId = contactId
+                                    this.contactImage = contactPhotoUri
+                                    this.contactNumber = contactNumber
+                                    this.hasContactImage = true
+                                    this.contactName = contactName
+                                }
+
+                            }
+
+//                    val emailJob = GlobalScope.async(Dispatchers.IO) {
+                            val emailContact  : Contact= getEmailId(context,contact,contactId,contactName)
+
+                            if(emailContact != null){
+                                contact.contactEmailId = emailContact.contactEmailId
+                            }
+//                    }
+//                    val addressJob = GlobalScope.async(Dispatchers.IO) {
+                            val addressContact : Contact = getAddress(context,contact,contactId,contactName)
+                            if(addressContact != null){
+                                contact.contactAddress = addressContact.contactAddress
+                                contact.contactCountry = addressContact.contactCountry
+                                contact.contactPostCode = addressContact.contactPostCode
+                            }
+//                    }
+
+                            Log.d("Contacts", "getContactList: ${contact}")
+
+                            contactList.add(contact)
+                        }
+                        it.close()
+                    }
                 }
-                it.close()
+            }catch (e : Exception){
+                Log.d(EXCEPTION, "getContactList: $e")
+            }finally {
+                if (cursor!=null)
+                {
+                    cursor.close()
+                }
             }
-        }
+
 
 
         return contactList
+    }
+
+    private fun getAddress(context: Context, contact: Contact, contactId: String, contactName: String): Contact {
+        val whereClause = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME+"=? and "+ContactsContract.CommonDataKinds.Phone.CONTACT_ID+"=?"
+        val contentResolver = context.contentResolver
+        val cursor = contentResolver.query(
+            ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_URI,
+            mColumnProjectionsForPostal,
+            whereClause,
+            arrayOf<String>(contactName,contactId),
+            null
+        )
+
+        var address : String = ""
+        var pincode : String = ""
+        var country : String = ""
+        if (cursor != null && cursor.count > 0){
+           try {
+               while (cursor.moveToNext()){
+                   address = cursor.getString(0)
+                   pincode = cursor?.getString(1) ?: ""
+                   country = cursor.getString(2)
+               }
+           }catch (e : Exception){
+               Log.d(EXCEPTION, "getAddress: ${e}")
+           }finally {
+               if (cursor!=null)
+                   cursor.close()
+           }
+        }
+
+        contact.contactAddress = address
+        contact.contactCountry = country
+        contact.contactPostCode = pincode
+        Log.d("ADDRESS", "getAddress: $contact")
+        return contact
+    }
+
+    private fun getEmailId(context: Context, contact: Contact, contactId: String, contactName: String): Contact {
+        val whereClause = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME+"=? and "+ContactsContract.CommonDataKinds.Phone.CONTACT_ID+"=?"
+
+        val contentResolver = context.contentResolver
+        val cursor = contentResolver.query(
+            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+            arrayOf<String>(ContactsContract.CommonDataKinds.Email.ADDRESS),
+            whereClause,
+            arrayOf<String>(contactName,contactId),
+            null
+        );
+
+        var emailId : String = ""
+        if (cursor != null && cursor.count > 0){
+            try {
+                while (cursor.moveToNext()){
+                    emailId = cursor.getString(0)
+                }
+            }catch (e : Exception){
+                Log.d(EXCEPTION, "getEmailId: $e")
+            }finally {
+               if (cursor!=null){
+                   cursor.close()
+               }
+            }
+        }
+        contact.contactEmailId = emailId
+        Log.d("EMAIL", "getEmailId: $contact")
+        return contact
     }
 
 
@@ -75,7 +200,6 @@ object ContactProvider {
         }
 
 
-//        contentResolver.update(ContactsContract.RawContacts.CONTENT_URI)
 
     }
 

@@ -1,5 +1,6 @@
 package com.itsfrz.androidspinner
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -46,5 +47,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    fun secondActivity(view: View) {
+        val intent = Intent(baseContext,::SecondActivity.javaClass)
+        startActivity(intent)
     }
 }

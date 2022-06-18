@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.*
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
@@ -15,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -26,15 +28,15 @@ import com.itsfrz.authentication.adapters.ContactAdapter
 import com.itsfrz.authentication.adapters.PhoneTypeArrayAdapter
 import com.itsfrz.authentication.animation.startAnimation
 import com.itsfrz.authentication.database.PreferenceRespository
+
 import com.itsfrz.authentication.model.Contact
-import com.itsfrz.authentication.model.PhoneType
-import com.itsfrz.authentication.model.PhoneTypes
 import com.itsfrz.authentication.provider.ContactProvider
+import kotlinx.coroutines.*
 
 class ContactFragment : Fragment() {
 
     private lateinit var communicator: AuthenticationCommunicator
-
+    private lateinit var contactList: ArrayList<Contact>
     private val preferenceRespository by lazy {
         PreferenceRespository(requireContext())
     }
@@ -47,9 +49,8 @@ class ContactFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_contact, container, false)
         setupNewContact(view);
 
-
         communicator = activity as AuthenticationCommunicator
-        val contactList = ContactProvider.getContactList(requireContext())
+        contactList = ContactProvider.getContactList(requireContext())
         setupRecyclerView(contactList,view)
 
 
@@ -131,8 +132,10 @@ class ContactFragment : Fragment() {
     }
 
 
-
-
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+//        outState.putParcelableArray("outKey",contactList)
+    }
 
 
 

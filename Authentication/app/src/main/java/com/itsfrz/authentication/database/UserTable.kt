@@ -30,7 +30,12 @@ object UserTable {
         val contentValue = ContentValues()
         contentValue.put(Columns.USER_NAME,user.username)
         contentValue.put(Columns.USER_PASSWORD,user.password)
-        db.insert(TABLE_NAME,null,contentValue)
+        try {
+            db.insert(TABLE_NAME,null,contentValue)
+        }finally {
+            db.close()
+        }
+
         Log.d("INSERT", "insertUser: ${contentValue.toString()}")
     }
 
@@ -51,13 +56,24 @@ object UserTable {
         )
 
         val userData = arrayListOf<User>()
-        while (cursor.moveToNext()){
-            val userInstance = User(
-                cursor.getString(1),
-                cursor.getString(2)
-            )
-            userData.add(userInstance)
+
+        try{
+            while (cursor.moveToNext()){
+                val userInstance = User(
+                    cursor.getString(1),
+                    cursor.getString(2)
+                )
+                userData.add(userInstance)
+            }
+
+        }finally {
+            if (cursor!= null && !cursor.isClosed)
+                cursor.close()
+            if (db != null && db.isOpen)
+                db.close()
+
         }
+
         if (userData.size <= 0)
             return User("","")
         return userData.get(0)

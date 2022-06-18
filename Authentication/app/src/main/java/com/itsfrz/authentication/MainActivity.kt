@@ -3,19 +3,19 @@ package com.itsfrz.authentication
 import android.Manifest
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.itsfrz.authentication.database.PreferenceRespository
 import com.itsfrz.authentication.fragments.*
 import com.itsfrz.authentication.model.Contact
-import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() ,AuthenticationCommunicator {
     private val preferenceRespository by lazy {
         PreferenceRespository(this)
     }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,9 +36,12 @@ class MainActivity : BaseActivity() ,AuthenticationCommunicator {
         }
 
 
+
     }
 
+
     private fun initFragment() {
+
         lateinit var initFragment : Fragment
         if (preferenceRespository.getLoggedIn()){
             initFragment = ContactFragment()
@@ -105,7 +108,7 @@ class MainActivity : BaseActivity() ,AuthenticationCommunicator {
     override fun routeFromContactToAddContact() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         val addContactFragment = AddContactFragment()
-        fragmentTransaction.replace(R.id.fragmentContainer,addContactFragment)
+        fragmentTransaction.add(R.id.fragmentContainer,addContactFragment)
         fragmentTransaction.addToBackStack("Add Contact Fragment")
         fragmentTransaction.commit()
 
@@ -115,13 +118,15 @@ class MainActivity : BaseActivity() ,AuthenticationCommunicator {
     override fun routeFromContactToContactDetail(contact: Contact) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         val contactDetailFragment = ContactDetailFragment()
-        fragmentTransaction.replace(R.id.fragmentContainer,contactDetailFragment)
+        fragmentTransaction.add(R.id.fragmentContainer,contactDetailFragment)
         fragmentTransaction.addToBackStack("Add Contact Fragment")
         val bundle = Bundle()
         bundle.putString("ContactName",contact.contactName)
         bundle.putString("ContactImage",contact.contactImage)
         bundle.putString("ContactNumber",contact.contactNumber)
         bundle.putBoolean("hasContactImage",contact.hasContactImage)
+        bundle.putString("ContactAddress",contact.contactAddress)
+        bundle.putString("ContactEmailId",contact.contactEmailId)
         contactDetailFragment.arguments = bundle
         fragmentTransaction.commit()
 

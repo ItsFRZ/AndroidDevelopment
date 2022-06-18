@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import com.itsfrz.authentication.R
@@ -18,11 +19,11 @@ class ContactDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_contact_detail, container, false)
-        val textNameView = view.findViewById<TextView>(R.id.personNameDetail)
+        val textNameView = view.findViewById<EditText>(R.id.personNameDetail)
         val imagePerson = view.findViewById<ImageView>(R.id.personImageDetail)
-        val textNumberView = view.findViewById<TextView>(R.id.personPhoneNumberDetail)
-        val textAddressView = view.findViewById<TextView>(R.id.personAddressDetail)
-        val textEmailAddressView = view.findViewById<TextView>(R.id.personEmailAddressDetail)
+        val textNumberView = view.findViewById<EditText>(R.id.personPhoneNumberDetail)
+        val textAddressView = view.findViewById<EditText>(R.id.personAddressDetail)
+        val textEmailAddressView = view.findViewById<EditText>(R.id.personEmailAddressDetail)
         val personName : String = arguments?.getString("ContactName") ?: ""
         val personNumber : String = arguments?.getString("ContactNumber") ?: ""
         val personImage : String = arguments?.getString("ContactImage") ?: ""
