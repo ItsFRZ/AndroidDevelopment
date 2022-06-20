@@ -3,6 +3,7 @@ package com.itsfrz.authentication.fragments
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -17,6 +18,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -41,6 +45,7 @@ class ContactFragment : Fragment() {
         PreferenceRespository(requireContext())
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +55,7 @@ class ContactFragment : Fragment() {
         setupNewContact(view);
 
         communicator = activity as AuthenticationCommunicator
+
         contactList = ContactProvider.getContactList(requireContext())
         setupRecyclerView(contactList,view)
 
