@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="10dp"
+    android:clickable="true"
+    app:cardCornerRadius="10dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/colorTag"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/rowOne"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:id="@+id/showTitle"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                tools:text="Task Title"
+                android:textSize="22sp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Category"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    tools:text="Writing"
+                    android:textSize="14sp"
+                    android:id="@+id/showCategory"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:id="@+id/showDescription"
+            android:padding="10dp"
+            android:textStyle="bold"
+            tools:text="Task Subtitle"
+            android:textSize="18sp"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/rowOne"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textview.MaterialTextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:layout_below="@id/showDescription"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Date"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    tools:text="22-12-2022"
+                    android:textSize="12sp"
+                    android:id="@+id/showDate"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Time"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    tools:text="12:02 AM"
+                    android:textSize="12sp"
+                    android:id="@+id/showTime"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

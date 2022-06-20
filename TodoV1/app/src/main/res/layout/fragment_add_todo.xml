@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="3dp"
+    tools:context=".fragments.AddTodoFragment">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/addTodoToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_color"
+        app:title="New Task"
+        app:titleTextColor="@color/white">
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/inputViewLayout"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addTodoToolBar">
+
+        <LinearLayout
+            android:id="@+id/todoTitleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="3dp"
+                android:text="Task Title"
+                android:textColor="@color/primary_color">
+
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Task Title"
+                android:textColorHint="@color/red"
+                app:boxStrokeColor="@color/primary_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/taskTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/secondary_color"></com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/todoDescriptionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todoTitleLayout"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="3dp"
+                android:text="What is to be done ?"
+                android:textColor="@color/primary_color">
+
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/taskDescriptionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Task Description"
+                android:textColorHint="@color/red"
+
+                app:boxStrokeColor="@color/primary_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/taskDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|left"
+                    android:inputType="text"
+                    android:maxLines="6"
+                    android:minLines="1"
+                    android:scrollbarStyle="insideOverlay"
+                    android:textColor="@color/secondary_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/todoCalendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todoDescriptionLayout"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="3dp"
+                android:text="Set Reminder Date and Time"
+                android:textColor="@color/primary_color">
+
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                app:boxStrokeColor="@color/primary_color"
+                android:hint="Set Date"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/taskDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/ic_baseline_date_range_24"
+                    android:focusable="false"
+                    android:scrollbarStyle="insideOverlay"
+                    android:textColor="@color/secondary_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/todoTimeReminderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@+id/todoCalendarLayout"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                app:boxStrokeColor="@color/primary_color"
+                android:hint="Set Time"
+                android:id="@+id/taskTimeLayout"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/taskTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_baseline_access_time_24"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:scrollbarStyle="insideOverlay"
+                    android:textColor="@color/secondary_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/todoCategoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todoTimeReminderLayout"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/todoSpinner"
+                tools:listitem="@layout/spinner_layout_items"
+                android:layout_height="wrap_content">
+
+            </androidx.appcompat.widget.AppCompatSpinner>
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/ic_baseline_playlist_add_24"
+                android:layout_height="26dp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Task"
+        android:id="@+id/taskSaveButton"
+        app:rippleColor="@color/secondary_color"
+        android:layout_below="@id/inputViewLayout"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginVertical="20dp"
+        app:cornerRadius="5dp" />
+
+</RelativeLayout>

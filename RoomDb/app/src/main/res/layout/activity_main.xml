@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/userName"
+        android:hint="Username"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/userNumber"
+        android:hint="UserNumber"
+        android:gravity="center"
+
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/userName"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/userAddress"
+        android:hint="UserAddress"
+        android:gravity="center"
+
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/userNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/userAge"
+        android:hint="UserAge"
+        android:gravity="center"
+
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/userAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_below="@id/userAge"
+        android:layout_marginTop="50dp"
+        android:id="@+id/saveUser"
+        android:text="Save User"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"></com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_below="@id/saveUser"
+        android:id="@+id/fetchUser"
+        android:text="Fetch User"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"></com.google.android.material.button.MaterialButton>
+
+
+
+</RelativeLayout>
